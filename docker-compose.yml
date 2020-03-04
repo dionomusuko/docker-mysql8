@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: dio-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: go-db
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/mysql/data:/var/lib/mysql
+      - ./db/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
